@@ -21,7 +21,7 @@
   (require 'cl))
 
 (defgroup darken-text nil "darken-text customization."
-  :group 'convince)
+  :group 'convenience)
 
 (defcustom darken-text-color "#3e4446"
   "Color to use to darken text."
