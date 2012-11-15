@@ -5,7 +5,7 @@
 ;; Author: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ;; Keywords: emacs, 
 ;; Created: 2012-11-15
-;; Last changed: 2012-11-15 17:25:50
+;; Last changed: 2012-11-15 17:37:50
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
 
 ;; This file is NOT part of GNU Emacs.
@@ -56,7 +56,8 @@
 				  face
 				(list face))))))
 	    do (let ((ov (make-overlay (point) P)))
-		 (overlay-put ov 'face `(foreground-color . ,darken-text-color))
+		 (overlay-put ov 'face
+			      (cons 'foreground-color darken-text-color))
 		 (when darken-text-intangible
 		   (overlay-put ov 'intangible t)))
 	    do (goto-char P)))))
