@@ -5,7 +5,7 @@
 ;; Author: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ;; Keywords: emacs, 
 ;; Created: 2012-11-15
-;; Last changed: 2012-11-16 15:57:56
+;; Last changed: 2012-11-16 16:12:41
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
 
 ;; This file is NOT part of GNU Emacs.
@@ -38,6 +38,12 @@
 
 (defcustom darken-text-ignore
   '((ALL . (font-lock-string-face))
+    (latex-mode . (font-latex-sectioning-0-face
+		   font-latex-sectioning-1-face
+		   font-latex-sectioning-2-face
+		   font-latex-sectioning-3-face
+		   font-latex-sectioning-4-face
+		   font-latex-sectioning-5-face))
     (nxml-mode . (nxml-text)))
   "list of font-face to ignore. ALIST which CAR is a `major-mode'
 and CDR is a list of face name to ignore. Special mode \"ALL\" is
