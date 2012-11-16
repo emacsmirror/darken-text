@@ -80,7 +80,7 @@
 
 (define-minor-mode darken-text-mode
   "Toggle darken-text-mode."
-  nil " D" nil
+  nil " DrkT" nil
   (if darken-text-mode
       (progn
 	(darken-text-on)
