@@ -28,8 +28,9 @@
   :group 'darken-text
   :type 'color)
 
-(defcustom darken-text-ignore nil
-  "list of font-face to ignore."
+(defcustom darken-text-ignore
+  '((ALL . (font-lock-string-face))
+    (nxml-mode . (nxml-text)))
   "list of font-face to ignore. ALIST which CAR is a `major-mode'
 and CDR is a list of face name to ignore. Special mode \"ALL\" is
 used as default values to be ignored for all modes."
