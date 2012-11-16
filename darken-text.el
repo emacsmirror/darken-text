@@ -5,14 +5,22 @@
 ;; Author: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ;; Keywords: emacs, 
 ;; Created: 2012-11-15
-;; Last changed: 2012-11-16 15:22:46
+;; Last changed: 2012-11-16 15:57:56
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
 
 ;; This file is NOT part of GNU Emacs.
 
 ;;; Commentary:
-;; 
-;;      (global-set-key (kbd "M-.") 'darken-text-mode)
+;;
+;;  This allows you to darken all font-face withing a buffer thus all pure
+;;  text will be emphasized. This is usefull while editing xml, html,
+;;  LaTeX files.
+;;
+;;  Put this darken-text directory somewhere within your ~/.emacs.d, then in
+;;  your emacs init file:
+;;
+;;  (add-to-list 'load-path "~/.emacs.d/lib/darken-text")
+;;  (global-set-key (kbd "M-.") 'darken-text-mode)
 
 ;;; Code:
 
@@ -85,6 +93,7 @@ used as default values to be ignored for all modes."
   (darken-text-off (point-at-bol) (point-at-eol))
   (darken-text-on (point-at-bol) (point-at-eol)))
 
+;;;###autoload
 (define-minor-mode darken-text-mode
   "Toggle darken-text-mode."
   nil " DrkT" nil
