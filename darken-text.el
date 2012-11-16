@@ -68,8 +68,9 @@
   (let ((min (or min (point-min)))
 	(max (or max (point-max))))
     (loop for ov in (overlays-in min max)
-	  when (or
-		(string= darken-text-color (cdr (overlay-get ov 'face))))
+	  when (let ((face (overlay-get ov 'face)))
+		 (when (listp face)
+		   (string= darken-text-color (cdr (overlay-get ov 'face)))))
 	  do (delete-overlay ov))))
 
 (defun darken-text-update ()
