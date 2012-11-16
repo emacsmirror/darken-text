@@ -5,14 +5,14 @@
 ;; Author: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ;; Keywords: emacs, 
 ;; Created: 2012-11-15
-;; Last changed: 2012-11-15 17:37:50
+;; Last changed: 2012-11-16 14:54:09
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
 
 ;; This file is NOT part of GNU Emacs.
 
 ;;; Commentary:
 ;; 
-
+;;      (global-set-key (kbd "M-.") 'darken-text-mode)
 
 ;;; Code:
 
