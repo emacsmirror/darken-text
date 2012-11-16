@@ -5,7 +5,7 @@
 ;; Author: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ;; Keywords: emacs, 
 ;; Created: 2012-11-15
-;; Last changed: 2012-11-16 14:54:09
+;; Last changed: 2012-11-16 15:22:46
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
 
 ;; This file is NOT part of GNU Emacs.
@@ -30,8 +30,11 @@
 
 (defcustom darken-text-ignore nil
   "list of font-face to ignore."
+  "list of font-face to ignore. ALIST which CAR is a `major-mode'
+and CDR is a list of face name to ignore. Special mode \"ALL\" is
+used as default values to be ignored for all modes."
   :group 'darken-text
-  :type '(repeat face))
+  :type '(alist :key-type symbol :value-type (repeat face)))
 
 
 (defcustom darken-text-intangible nil
@@ -43,7 +46,10 @@
   "Activate darken-text between point MIN and MAX. Use
 `point-min' and `point-max' if undefined."
   (let ((min (or min (point-min)))
-	(max (or max (point-max))))
+	(max (or max (point-max)))
+	(ignore-faces (union
+		       (cdr (assoc 'ALL darken-text-ignore))
+		       (cdr (assoc major-mode darken-text-ignore)))))
     (save-excursion
       (goto-char min)
       (loop for P = (next-property-change (point))
@@ -51,7 +57,7 @@
 	    when (let ((face (get-text-property (point) 'face)))
 		   (and face
 			(not (intersection
-			      darken-text-ignore
+			      ignore-faces
 			      (if (listp face)
 				  face
 				(list face))))))
